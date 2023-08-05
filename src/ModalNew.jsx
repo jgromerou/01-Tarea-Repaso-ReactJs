@@ -1,4 +1,5 @@
 import { Button, Form, Modal } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 const ModalNew = ({ show, handleCloseModal, dataModal }) => {
   return (
@@ -21,7 +22,9 @@ const ModalNew = ({ show, handleCloseModal, dataModal }) => {
                 </Form.Group>
               </Form>
               <div className="container text-center p-3">
-                <Button size="sm">MÁS INFO</Button>
+                <Button size="sm" onClick={handleCloseModal}>
+                  MÁS INFO
+                </Button>
               </div>
             </div>
           </div>
@@ -32,3 +35,8 @@ const ModalNew = ({ show, handleCloseModal, dataModal }) => {
 };
 
 export default ModalNew;
+
+ModalNew.propTypes = {
+  show: PropTypes.bool.isRequired,
+  handleCloseModal: PropTypes.func.isRequired,
+};

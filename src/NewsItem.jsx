@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import ModalNew from './ModalNew';
+import PropTypes from 'prop-types';
 
-const NovedadesItem = ({ data }) => {
+const NewsItem = ({ data }) => {
   const [show, setShow] = useState(false);
   const onClickShowModal = () => {
     setShow(true);
@@ -28,4 +29,8 @@ const NovedadesItem = ({ data }) => {
   );
 };
 
-export default NovedadesItem;
+export default NewsItem;
+
+NewsItem.propTypes = {
+  data: PropTypes.object.isRequired,
+};
