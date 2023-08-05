@@ -1,13 +1,13 @@
 import { Button, Form, Modal } from 'react-bootstrap';
 
-const ModalNew = ({ show, handleCloseModal }) => {
+const ModalNew = ({ show, handleCloseModal, dataModal }) => {
   return (
     <>
       <Modal show={show} onHide={handleCloseModal}>
         <Modal.Body>
           <div className="container">
             <div className="row mt-3">
-              <h5 className="text-center">Titulo</h5>
+              <h5 className="text-center">{dataModal.title}</h5>
               <p className="text-center">Inscribite ahora!!!</p>
             </div>
             <div className="row">
@@ -17,7 +17,7 @@ const ModalNew = ({ show, handleCloseModal }) => {
                   controlId="exampleForm.ControlTextarea1"
                 >
                   <Form.Label>Ingrese su nombre</Form.Label>
-                  <Form.Control as="text" rows={3} />
+                  <Form.Control as="textarea" rows={3} />
                 </Form.Group>
               </Form>
               <div className="container text-center p-3">

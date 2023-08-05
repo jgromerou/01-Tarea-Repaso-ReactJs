@@ -1,12 +1,30 @@
+import { useState } from 'react';
+import ModalNew from './ModalNew';
+
 const NovedadesItem = ({ data }) => {
+  const [show, setShow] = useState(false);
+  const onClickShowModal = () => {
+    setShow(true);
+  };
+
+  const handleCloseModal = () => {
+    setShow(false);
+  };
   return (
-    <div className="feature col text-white" id={`{data.id}`}>
-      <h3 className="fs-2">{data.title}</h3>
-      <p>{data.description}</p>
-      <a href="#" className="text-warning">
-        Call to action
-      </a>
-    </div>
+    <>
+      <div className="feature col text-white" id={`{data.id}`}>
+        <h3 className="fs-2">{data.title}</h3>
+        <p>{data.description}</p>
+        <a href="#" className="text-warning" onClick={onClickShowModal}>
+          Call to action
+        </a>
+      </div>
+      <ModalNew
+        show={show}
+        handleCloseModal={handleCloseModal}
+        dataModal={data}
+      />
+    </>
   );
 };
 
