@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const MenuItem = ({ id, linkName, colorText, disabled }) => {
   const isDisabled = disabled ? 'disabled' : '';
   return (
@@ -5,6 +7,7 @@ const MenuItem = ({ id, linkName, colorText, disabled }) => {
       className={`nav-link active text-${colorText} ${isDisabled}`}
       aria-current="page"
       href="#"
+      id={`${id}`}
     >
       {linkName}
     </a>
@@ -12,3 +15,15 @@ const MenuItem = ({ id, linkName, colorText, disabled }) => {
 };
 
 export default MenuItem;
+
+MenuItem.propTypes = {
+  disabled: PropTypes.bool.isRequired,
+  id: PropTypes.number.isRequired,
+  linkName: PropTypes.string.isRequired,
+  colorText: PropTypes.string.isRequired,
+};
+
+MenuItem.defaultProps = {
+  active: true,
+  colorText: 'white',
+};
