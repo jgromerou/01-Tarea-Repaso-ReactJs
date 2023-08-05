@@ -1,5 +1,6 @@
 import MenuBar from './MenuBar';
 import Search from './Search';
+import dataMenu from './data/Menu.json';
 
 const NavBar = () => {
   return (
@@ -17,7 +18,7 @@ const NavBar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <MenuBar />
+          <MenuBar data={dataMenu} />
           <Search />
         </div>
       </div>

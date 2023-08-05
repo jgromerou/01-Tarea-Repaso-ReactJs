@@ -1,7 +1,12 @@
-const MenuItem = () => {
+const MenuItem = ({ id, linkName, colorText, disabled }) => {
+  const isDisabled = disabled ? 'disabled' : '';
   return (
-    <a className="nav-link active text-white" aria-current="page" href="#">
-      Link-1
+    <a
+      className={`nav-link active text-${colorText} ${isDisabled}`}
+      aria-current="page"
+      href="#"
+    >
+      {linkName}
     </a>
   );
 };

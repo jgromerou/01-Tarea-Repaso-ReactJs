@@ -1,17 +1,18 @@
 import MenuItem from './MenuItem';
 
-const MenuBar = () => {
+const MenuBar = ({ data }) => {
   return (
     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-      <li className="nav-item ">
-        <MenuItem />
-      </li>
-      <li className="nav-item ">
-        <MenuItem />
-      </li>
-      <li className="nav-item ">
-        <MenuItem />
-      </li>
+      {data.map((item) => (
+        <li key={item.id} className="nav-item ">
+          <MenuItem
+            id={item.id}
+            linkName={item.name}
+            colorText={'white'}
+            disabled={item.active}
+          />
+        </li>
+      ))}
     </ul>
   );
 };
