@@ -1,23 +1,23 @@
 import { useState } from 'react';
-import Novedades from './data/CallToAction.json';
+import CallToAction from './data/CallToAction.json';
 import { useEffect } from 'react';
 
 const Banner = () => {
-  const [itemNovedades, setItemNovedades] = useState(0);
-  const [news, setNews] = useState(Novedades[itemNovedades]);
+  const [itemCallToAction, setItemCallToAction] = useState(0);
+  const [news, setNews] = useState(CallToAction[itemCallToAction]);
 
   useEffect(() => {
-    setNews(Novedades[itemNovedades]);
-    const intervalNew = setTimeout(() => {
-      itemNovedades === Novedades.length - 1
-        ? setItemNovedades(0)
-        : setItemNovedades((prevInterval) => prevInterval + 1);
+    setNews(CallToAction[itemCallToAction]);
+    const intervalCall = setTimeout(() => {
+      itemCallToAction === CallToAction.length - 1
+        ? setItemCallToAction(0)
+        : setItemCallToAction((prevInterval) => prevInterval + 1);
     }, 5000);
 
     return () => {
-      clearTimeout(intervalNew);
+      clearTimeout(intervalCall);
     };
-  }, [itemNovedades]);
+  }, [itemCallToAction]);
 
   return (
     <div className="bg-white p-5 text-center" id={`${news.id}`}>
